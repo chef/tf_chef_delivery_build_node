@@ -63,7 +63,7 @@ EOF
     # Perhaps we want to install chefdk on the build-nodes
     # if so, we can skip the chef-client install
     # skip_install = true
-    run_list = ["delivery_build"]
+    run_list = ["${split(",", var.run_list)}"]
     node_name = "${format(var.instance_name_pattern, count.index + 1)}"
     environment = "${var.chef_environment}"
     secret_key = "${path.cwd}/.chef/encrypted_data_bag_secret"
