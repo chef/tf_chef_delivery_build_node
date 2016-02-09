@@ -16,6 +16,7 @@ Module Input Variables
 - `instance_name_pattern` - Pattern to use when naming instances. Should include an integer format string i.e. builder%02d
 - `chef_server_url` - Chef Server URL to register.
 - `chef_organization` - Chef Server organization.
+- `chef_environment` - Chef Environment to put node in.
 - `delivery_enterprise` - Chef Delivery enterprise name.
 
 Usage
@@ -37,6 +38,7 @@ module "chef_delivery_build_node" {
   chef_server_url         = "https://52.24.40.244/organizations/terraform"
   delivery_enterprise     = "terraform"
   chef_organization       = "terraform"
+  chef_environment        = "_default"
 }
 ```
 
