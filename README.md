@@ -16,7 +16,6 @@ Module Input Variables
 - `instance_name_pattern` - Pattern to use when naming instances. Should include an integer format string i.e. builder%02d
 - `chef_server_url` - Chef Server URL to register.
 - `chef_organization` - Chef Server organization.
-- `delivery_enterprise` - Chef Delivery enterprise name.
 
 Usage
 -----
