@@ -66,6 +66,6 @@ EOF
     secret_key = "${path.cwd}/.chef/encrypted_data_bag_secret"
     server_url = "${var.chef_server_url}"
     validation_client_name = "${var.chef_organization}-validator"
-    validation_key = "${file("${path.cwd}/.chef/${var.chef_org}-validator.pem")}"
+    validation_key = "${file("${path.cwd}/.chef/${var.chef_organization}-validator.pem")}"
   }
 }
