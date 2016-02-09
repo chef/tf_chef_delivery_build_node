@@ -15,6 +15,7 @@ Module Input Variables
 - `instance_count` - Number of Build Nodes to create.
 - `instance_prefix` - Prefix to add to the Build Nodes instance name.
 - `chef_server_url` - Chef Server URL to register.
+- `chef_organization` - Chef Server organization.
 - `delivery_enterprise` - Chef Delivery enterprise name.
 
 Usage
@@ -35,6 +36,7 @@ module "chef_delivery_build_node" {
   aws_private_key_file    = ".keys/KEY-NAME.pem"
   chef_server_url         = "https://52.24.40.244/organizations/terraform"
   delivery_enterprise     = "terraform"
+  chef_organization       = "terraform"
 }
 ```
 

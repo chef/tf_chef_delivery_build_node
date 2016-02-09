@@ -1,11 +1,11 @@
 # Setup chef-delivery-build-node
 resource "aws_instance" "chef-delivery-build-node" {
-  ami = "${var.ami}"
-  count = "${var.count}"
-  instance_type = "${var.instance_type}"
-  subnet_id = "${var.subnet_id}"
-  vpc_security_group_ids = ["${var.security_groups_ids}"]
-  key_name = "${var.key_name}"
+  ami = "${var.aws_ami_id}"
+  count = "${var.instance_count}"
+  instance_type = "${var.aws_flavor}"
+  subnet_id = "${var.aws_subnet_id}"
+  vpc_security_group_ids = ["${var.aws_security_groups_ids}"]
+  key_name = "${var.aws_key_name}"
   tags {
     Name = "${format("chef-delivery-build-node-%02d", count.index + 1)}"
   }
@@ -13,8 +13,8 @@ resource "aws_instance" "chef-delivery-build-node" {
     delete_on_termination = true
   }
   connection {
-    user = "${var.user}"
-    key_fle = "${var.private_key_path}"
+    user = "${var.aws_ami_user}"
+    key_file = "${var.aws_private_key_file}"
   }
 
   # For now there is no way to delete the node from the chef-server
@@ -63,9 +63,9 @@ EOF
     # skip_install = true
     run_list = ["delivery_build"]
     node_name = "${format("chef-delivery-build-node-%02d", count.index + 1)}"
-    secret_key = "${file(".chef/encrypted_data_bag_secret")}"
-    server_url = "${var.chef-server-url}"
-    validation_client_name = "terraform-validator"
-    validation_key = "${file(".chef/terraform-validator.pem")}"
+    secret_key = "${path.cwd}/.chef/encrypted_data_bag_secret"
+    server_url = "${var.chef_server_url}"
+    validation_client_name = "${var.chef_organization}-validator"
+    validation_key = "${file("${path.cwd}/.chef/${var.chef_org}-validator.pem")}"
   }
 }

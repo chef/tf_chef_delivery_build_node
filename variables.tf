@@ -8,4 +8,5 @@ variable "aws_private_key_file" {}
 variable "instance_count" {}
 variable "chef_server_url" {}
 variable "delivery_enterprise" {}
+variable "chef_organization" {}
 variable "instance_prefix" {}
