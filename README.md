@@ -13,7 +13,7 @@ Module Input Variables
 - `aws_ami_user` - The user for the AMI to use to connect to the instance.
 - `aws_private_key_file` - The full path to the private kye matching `aws_key_name` public key on AWS.
 - `instance_count` - Number of Build Nodes to create.
-- `instance_prefix` - Prefix to add to the Build Nodes instance name.
+- `instance_name_pattern` - Pattern to use when naming instances. Should include an integer format string i.e. builder%02d
 - `chef_server_url` - Chef Server URL to register.
 - `chef_organization` - Chef Server organization.
 - `delivery_enterprise` - Chef Delivery enterprise name.
@@ -50,6 +50,7 @@ A Terraform plan to install and configure Chef Delivery and its components:
 LICENSE AND AUTHORS
 ===================
 * [Salim Afiune](https://github.com/afiune) (<afiune@chef.io>)
+* [Jon Morrow](https://github.com/jonsmorrow) (<jmorrow@chef.io>)
 
 ```text
 Copyright:: 2016 Chef Software, Inc

@@ -9,4 +9,6 @@ variable "instance_count" {}
 variable "chef_server_url" {}
 variable "delivery_enterprise" {}
 variable "chef_organization" {}
-variable "instance_prefix" {}
+variable "instance_name_pattern" {
+    default = "chef-delivery-build-node-%02d"
+}
