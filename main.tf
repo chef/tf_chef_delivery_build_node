@@ -65,6 +65,7 @@ EOF
     # skip_install = true
     run_list = ["delivery_build"]
     node_name = "${format(var.instance_name_pattern, count.index + 1)}"
+    environment = "${var.chef_environment}"
     secret_key = "${path.cwd}/.chef/encrypted_data_bag_secret"
     server_url = "${var.chef_server_url}"
     validation_client_name = "${var.chef_organization}-validator"
