@@ -15,6 +15,7 @@ resource "aws_instance" "chef-delivery-build-node" {
   connection {
     user = "${var.aws_ami_user}"
     key_file = "${var.aws_private_key_file}"
+    agent = true
   }
 
   # For now there is no way to delete the node from the chef-server
