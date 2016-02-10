@@ -15,3 +15,6 @@ variable "chef_environment" {
 variable "instance_name_pattern" {
     default = "chef-delivery-build-node-%02d"
 }
+variable "run_list" {
+    default = "recipe[delivery_build]"
+}

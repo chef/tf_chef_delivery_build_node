@@ -18,6 +18,7 @@ Module Input Variables
 - `chef_organization` - Chef Server organization.
 - `chef_environment` - Chef Environment to put node in.
 - `delivery_enterprise` - Chef Delivery enterprise name.
+- `run_list` - String with comma separated list of run_list items (role[blah] or recipe[blah]). If you override this you must include delivery_build somewhere in the expanded run_list.
 
 Usage
 -----
@@ -32,13 +33,14 @@ module "chef_delivery_build_node" {
   aws_subnet_id           = "subnet-b89dcee1"
   aws_security_groups_ids = "sg-6a0ac40d"
   instance_count          = 3
-  instance_prefix         = "my-corp-prefix"
+  instance_name_pattern   = "my-builder%02d"
   aws_key_name            = "KEY-NAME"
   aws_private_key_file    = ".keys/KEY-NAME.pem"
   chef_server_url         = "https://52.24.40.244/organizations/terraform"
   delivery_enterprise     = "terraform"
   chef_organization       = "terraform"
   chef_environment        = "_default"
+  run_list                = "recipe[delivery_build]"
 }
 ```
 
