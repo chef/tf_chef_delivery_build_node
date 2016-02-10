@@ -47,8 +47,6 @@ Outputs
 
 - `public_ips` - Comma-separated list of public_ids
 
-A Terraform plan to install and configure Chef Delivery and its components:
-
 LICENSE AND AUTHORS
 ===================
 * [Salim Afiune](https://github.com/afiune) (<afiune@chef.io>)
